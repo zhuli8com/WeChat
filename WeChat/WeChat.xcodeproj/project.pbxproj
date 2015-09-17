@@ -12,7 +12,6 @@
 		D090EA581BAA9F78003C9492 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D090EA571BAA9F78003C9492 /* ViewController.m */; };
 		D090EA5B1BAA9F78003C9492 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D090EA591BAA9F78003C9492 /* Main.storyboard */; };
 		D090EA5D1BAA9F78003C9492 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D090EA5C1BAA9F78003C9492 /* Images.xcassets */; };
-		D090EA601BAA9F78003C9492 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D090EA5E1BAA9F78003C9492 /* LaunchScreen.xib */; };
 		D090EA6C1BAA9F78003C9492 /* WeChatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D090EA6B1BAA9F78003C9492 /* WeChatTests.m */; };
 /* End PBXBuildFile section */
 
@@ -36,7 +35,6 @@
 		D090EA571BAA9F78003C9492 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		D090EA5A1BAA9F78003C9492 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D090EA5C1BAA9F78003C9492 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		D090EA5F1BAA9F78003C9492 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		D090EA651BAA9F78003C9492 /* WeChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D090EA6A1BAA9F78003C9492 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D090EA6B1BAA9F78003C9492 /* WeChatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeChatTests.m; sourceTree = "<group>"; };
@@ -87,7 +85,6 @@
 				D090EA571BAA9F78003C9492 /* ViewController.m */,
 				D090EA591BAA9F78003C9492 /* Main.storyboard */,
 				D090EA5C1BAA9F78003C9492 /* Images.xcassets */,
-				D090EA5E1BAA9F78003C9492 /* LaunchScreen.xib */,
 				D090EA4F1BAA9F78003C9492 /* Supporting Files */,
 			);
 			path = WeChat;
@@ -200,7 +197,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D090EA5B1BAA9F78003C9492 /* Main.storyboard in Resources */,
-				D090EA601BAA9F78003C9492 /* LaunchScreen.xib in Resources */,
 				D090EA5D1BAA9F78003C9492 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -250,14 +246,6 @@
 				D090EA5A1BAA9F78003C9492 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		D090EA5E1BAA9F78003C9492 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D090EA5F1BAA9F78003C9492 /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -345,7 +333,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = WeChat/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -355,7 +345,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = WeChat/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
