@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    DDLogDebug(@"测试log,测试git");
+    DDLogDebug(@"测试log,测试git！");
 }
 
 - (void)didReceiveMemoryWarning {
