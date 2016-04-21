@@ -12,14 +12,4 @@
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
-#import "DDLog.h"
-#import "DDTTYLogger.h"
-
-// Log levels: off, error, warn, info, verbose
-#if DEBUG
-static const int ddLogLevel = LOG_LEVEL_DEBUG;
-#else
-static const int ddLogLevel = LOG_LEVEL_OFF;
-#endif
-
 #endif
