@@ -7,16 +7,30 @@ PODS:
     - CocoaLumberjack/Core
   - CocoaLumberjack/Extensions (2.2.0):
     - CocoaLumberjack/Default
+  - FMDB (2.6.2):
+    - FMDB/standard (= 2.6.2)
+  - FMDB/SQLCipher (2.6.2):
+    - SQLCipher
+  - FMDB/standard (2.6.2)
   - MQTTClient (0.7.4):
     - MQTTClient/Core (= 0.7.4)
   - MQTTClient/Core (0.7.4):
     - CocoaLumberjack
+  - SQLCipher (3.4.0):
+    - SQLCipher/standard (= 3.4.0)
+  - SQLCipher/common (3.4.0)
+  - SQLCipher/standard (3.4.0):
+    - SQLCipher/common
 
 DEPENDENCIES:
+  - FMDB
+  - FMDB/SQLCipher
   - MQTTClient
 
 SPEC CHECKSUMS:
   CocoaLumberjack: 17fe8581f84914d5d7e6360f7c70022b173c3ae0
+  FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
   MQTTClient: 1c1bedf87249a317ee9324b93252867bbc443ec7
+  SQLCipher: 4c768761421736a247ed6cf412d9045615d53dff
 
 COCOAPODS: 0.39.0

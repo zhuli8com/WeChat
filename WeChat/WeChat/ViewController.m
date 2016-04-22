@@ -10,6 +10,7 @@
 #import <MQTTClient/MQTTClient.h>
 #import <MQTTClient/MQTTSessionManager.h>
 #import "MXConversation.h"
+#import <FMDB.h>
 
 @interface ViewController () <MQTTSessionManagerDelegate>
 
@@ -90,9 +91,23 @@
     NSDictionary *message=[dataString JSONValue];
     if ([[message objectForKey:@"type"] isEqualToString:@"private_message"]) {
         NSLog(@"Client收到新消息：%@---主题：%@---retained：%d",dataString,topic,retained);
-     
+    
         MXConversation *conversation=[MXConversation conversationWithDictionary:[message objectForKey:@"data"]];
         NSLog(@"%@%@",conversation,conversation.body);
+        
+        NSURL *aURL=[[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+        NSLog(@"aPath=%@",aURL.path);
+        FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[aURL.path stringByAppendingPathComponent:@"minxing.db"]];
+        [queue inDatabase:^(FMDatabase *db) {
+            //int real text blob
+            [db executeUpdate:@"create table if not exists t_conversation (id int,sender_id int,conversation_id long,created_at text,system bool,type text,direct_to_user_id int,network_id int,body text,message_type text)"];
+            //insert into 表名后面没有列是插入不进库的，所有数据都必须转成OC的对象
+            [db executeUpdate:@"replace into t_conversation(id,sender_id,conversation_id,created_at,system,type,direct_to_user_id,network_id,body,message_type) values(?,?,?,?,?,?,?,?,?,?)",conversation.ID,@(conversation.sender_id),@(conversation.conversation_id),conversation.created_at,@(conversation.system),conversation.type,@(conversation.direct_to_user_id),@(conversation.network_id),conversation.body,conversation.message_type];
+            FMResultSet *rs=[db executeQuery:@"select * from t_conversation"];
+            while ([rs next]) {
+                NSLog(@"%d",[rs intForColumn:@"id"]);
+            }
+        }];
     }
 }
 

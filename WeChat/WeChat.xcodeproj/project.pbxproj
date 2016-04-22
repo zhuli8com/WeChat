@@ -109,10 +109,10 @@
 		AC60EB0D1CCA207E00E91B8B /* Message */ = {
 			isa = PBXGroup;
 			children = (
-				AC60EB0E1CCA207E00E91B8B /* Controoler */,
 				AC60EB0F1CCA207E00E91B8B /* Model */,
-				AC60EB101CCA207E00E91B8B /* Other */,
 				AC60EB111CCA207E00E91B8B /* View */,
+				AC60EB0E1CCA207E00E91B8B /* Controoler */,
+				AC60EB101CCA207E00E91B8B /* Other */,
 			);
 			path = Message;
 			sourceTree = "<group>";
