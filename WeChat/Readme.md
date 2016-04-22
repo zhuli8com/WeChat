@@ -1,0 +1,3 @@
+1、引用mqtt第三方框架时提示某个架构不支持，最后根据cocoapds提示发现other link flags处设置不对，恢复默认值（$(inherited)）正常运行。
+The `WeChat [Debug]` target overrides the `OTHER_LDFLAGS` build setting defined in `Pods/Target Support Files/Pods/Pods.debug.xcconfig'. This can lead to problems with the CocoaPods installation
+The `WeChat [Release]` target overrides the `OTHER_LDFLAGS` build setting defined in `Pods/Target Support Files/Pods/Pods.release.xcconfig'. This can lead to problems with the CocoaPods installation
