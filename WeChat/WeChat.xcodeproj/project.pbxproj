@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4D1CB910F3F24A9282A55685 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D17442E371F5426FA7101959 /* libPods.a */; };
+		AC60EB091CCA1D6800E91B8B /* NSObject+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = AC60EB081CCA1D6800E91B8B /* NSObject+JSON.m */; };
+		AC60EB0C1CCA1DA600E91B8B /* NSString+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = AC60EB0B1CCA1DA600E91B8B /* NSString+JSON.m */; };
+		AC60EB141CCA20D500E91B8B /* MXConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = AC60EB131CCA20D500E91B8B /* MXConversation.m */; };
 		D090EA521BAA9F78003C9492 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D090EA511BAA9F78003C9492 /* main.m */; };
 		D090EA551BAA9F78003C9492 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D090EA541BAA9F78003C9492 /* AppDelegate.m */; };
 		D090EA581BAA9F78003C9492 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D090EA571BAA9F78003C9492 /* ViewController.m */; };
@@ -31,6 +34,12 @@
 		8435999C82051DA7046A6DD8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		AC60EAFF1CC9EE8300E91B8B /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 		AC60EB001CC9F1CA00E91B8B /* Macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
+		AC60EB071CCA1D6800E91B8B /* NSObject+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JSON.h"; sourceTree = "<group>"; };
+		AC60EB081CCA1D6800E91B8B /* NSObject+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JSON.m"; sourceTree = "<group>"; };
+		AC60EB0A1CCA1DA600E91B8B /* NSString+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JSON.h"; sourceTree = "<group>"; };
+		AC60EB0B1CCA1DA600E91B8B /* NSString+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JSON.m"; sourceTree = "<group>"; };
+		AC60EB121CCA20D500E91B8B /* MXConversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXConversation.h; sourceTree = "<group>"; };
+		AC60EB131CCA20D500E91B8B /* MXConversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXConversation.m; sourceTree = "<group>"; };
 		D090EA4C1BAA9F78003C9492 /* WeChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D090EA501BAA9F78003C9492 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D090EA511BAA9F78003C9492 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -78,6 +87,66 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		AC60EB011CCA1C0000E91B8B /* Expand */ = {
+			isa = PBXGroup;
+			children = (
+				AC60EB021CCA1C0000E91B8B /* Category */,
+			);
+			path = Expand;
+			sourceTree = "<group>";
+		};
+		AC60EB021CCA1C0000E91B8B /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				AC60EB071CCA1D6800E91B8B /* NSObject+JSON.h */,
+				AC60EB081CCA1D6800E91B8B /* NSObject+JSON.m */,
+				AC60EB0A1CCA1DA600E91B8B /* NSString+JSON.h */,
+				AC60EB0B1CCA1DA600E91B8B /* NSString+JSON.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		AC60EB0D1CCA207E00E91B8B /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				AC60EB0E1CCA207E00E91B8B /* Controoler */,
+				AC60EB0F1CCA207E00E91B8B /* Model */,
+				AC60EB101CCA207E00E91B8B /* Other */,
+				AC60EB111CCA207E00E91B8B /* View */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		AC60EB0E1CCA207E00E91B8B /* Controoler */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controoler;
+			sourceTree = "<group>";
+		};
+		AC60EB0F1CCA207E00E91B8B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AC60EB121CCA20D500E91B8B /* MXConversation.h */,
+				AC60EB131CCA20D500E91B8B /* MXConversation.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AC60EB101CCA207E00E91B8B /* Other */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		AC60EB111CCA207E00E91B8B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		D090EA431BAA9F78003C9492 = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +171,8 @@
 		D090EA4E1BAA9F78003C9492 /* WeChat */ = {
 			isa = PBXGroup;
 			children = (
+				AC60EB0D1CCA207E00E91B8B /* Message */,
+				AC60EB011CCA1C0000E91B8B /* Expand */,
 				D090EA531BAA9F78003C9492 /* AppDelegate.h */,
 				D090EA541BAA9F78003C9492 /* AppDelegate.m */,
 				D090EA561BAA9F78003C9492 /* ViewController.h */,
@@ -300,9 +371,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC60EB0C1CCA1DA600E91B8B /* NSString+JSON.m in Sources */,
+				AC60EB141CCA20D500E91B8B /* MXConversation.m in Sources */,
 				D090EA581BAA9F78003C9492 /* ViewController.m in Sources */,
 				D090EA551BAA9F78003C9492 /* AppDelegate.m in Sources */,
 				D090EA521BAA9F78003C9492 /* main.m in Sources */,
+				AC60EB091CCA1D6800E91B8B /* NSObject+JSON.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

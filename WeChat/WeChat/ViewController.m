@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import <MQTTClient/MQTTClient.h>
 #import <MQTTClient/MQTTSessionManager.h>
+#import "MXConversation.h"
 
 @interface ViewController () <MQTTSessionManagerDelegate>
 
@@ -16,7 +17,7 @@
 @end
 
 @implementation ViewController
-
+#pragma mark - life cycles
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
@@ -58,14 +59,45 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc{
+    [self.mqttManager removeObserver:self forKeyPath:@"state"];
+}
+
 #pragma mark - MQTTSessionManagerDelegate
 - (void)handleMessage:(NSData *)data onTopic:(NSString *)topic retained:(BOOL)retained{
     NSString *dataString=[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSLog(@"我收到新消息%@---%@",dataString,topic);
+    NSLog(@"Client收到新消息：%@---主题：%@---retained：%d",dataString,topic,retained);
+
+    /**
+     *  {
+     "data":
+     {
+     "id":4698,
+     "sender_id":666,
+     "conversation_id"20022056,
+     "created_at":"2016-04-22T15:34:00+08:00",
+     "system":false,
+     "type":"message",
+     "direct_to_user_id":667,
+     "network_id":2,
+     "body":"nihao",
+     "message_type":"text_message"
+     },
+     "type":"private_message"
+     }
+     ---/u/eWgveuUL7Mvw3_MWKg2pfWi56FY=
+     */
+    NSDictionary *message=[dataString JSONValue];
+    if ([[message objectForKey:@"type"] isEqualToString:@"private_message"]) {
+        NSLog(@"Client收到新消息：%@---主题：%@---retained：%d",dataString,topic,retained);
+     
+        MXConversation *conversation=[MXConversation conversationWithDictionary:[message objectForKey:@"data"]];
+        NSLog(@"%@%@",conversation,conversation.body);
+    }
 }
 
 #pragma mark - kvo
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
-    NSLog(@"我的当前状态为：%d",self.mqttManager.state);
+    NSLog(@"MQTT的当前状态为：%d",self.mqttManager.state);
 }
 @end
