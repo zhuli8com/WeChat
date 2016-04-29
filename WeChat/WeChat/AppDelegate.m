@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "MXMessageViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -16,6 +16,10 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.window=[[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    MXMessageViewController *messageVC=[[MXMessageViewController alloc] init];
+    self.window.rootViewController=messageVC;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

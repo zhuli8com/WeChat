@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		4D1CB910F3F24A9282A55685 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D17442E371F5426FA7101959 /* libPods.a */; };
+		AC0424F31CD23C2A00970D80 /* MXMQTTManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0424F21CD23C2A00970D80 /* MXMQTTManager.m */; };
 		AC60EB091CCA1D6800E91B8B /* NSObject+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = AC60EB081CCA1D6800E91B8B /* NSObject+JSON.m */; };
 		AC60EB0C1CCA1DA600E91B8B /* NSString+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = AC60EB0B1CCA1DA600E91B8B /* NSString+JSON.m */; };
 		AC60EB141CCA20D500E91B8B /* MXConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = AC60EB131CCA20D500E91B8B /* MXConversation.m */; };
 		D090EA521BAA9F78003C9492 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D090EA511BAA9F78003C9492 /* main.m */; };
 		D090EA551BAA9F78003C9492 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D090EA541BAA9F78003C9492 /* AppDelegate.m */; };
-		D090EA581BAA9F78003C9492 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D090EA571BAA9F78003C9492 /* ViewController.m */; };
-		D090EA5B1BAA9F78003C9492 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D090EA591BAA9F78003C9492 /* Main.storyboard */; };
+		D090EA581BAA9F78003C9492 /* MXMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D090EA571BAA9F78003C9492 /* MXMessageViewController.m */; };
 		D090EA5D1BAA9F78003C9492 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D090EA5C1BAA9F78003C9492 /* Images.xcassets */; };
 		D090EA6C1BAA9F78003C9492 /* WeChatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D090EA6B1BAA9F78003C9492 /* WeChatTests.m */; };
 		D090EC7E1BAAA579003C9492 /* libresolv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D090EC7D1BAAA579003C9492 /* libresolv.dylib */; };
@@ -32,6 +32,8 @@
 
 /* Begin PBXFileReference section */
 		8435999C82051DA7046A6DD8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		AC0424F11CD23C2A00970D80 /* MXMQTTManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXMQTTManager.h; sourceTree = "<group>"; };
+		AC0424F21CD23C2A00970D80 /* MXMQTTManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXMQTTManager.m; sourceTree = "<group>"; };
 		AC60EAFF1CC9EE8300E91B8B /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 		AC60EB001CC9F1CA00E91B8B /* Macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
 		AC60EB071CCA1D6800E91B8B /* NSObject+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JSON.h"; sourceTree = "<group>"; };
@@ -45,9 +47,8 @@
 		D090EA511BAA9F78003C9492 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D090EA531BAA9F78003C9492 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D090EA541BAA9F78003C9492 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		D090EA561BAA9F78003C9492 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		D090EA571BAA9F78003C9492 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		D090EA5A1BAA9F78003C9492 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D090EA561BAA9F78003C9492 /* MXMessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MXMessageViewController.h; path = ../../MXMessageViewController.h; sourceTree = "<group>"; };
+		D090EA571BAA9F78003C9492 /* MXMessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MXMessageViewController.m; path = ../../MXMessageViewController.m; sourceTree = "<group>"; };
 		D090EA5C1BAA9F78003C9492 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D090EA651BAA9F78003C9492 /* WeChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D090EA6A1BAA9F78003C9492 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -87,9 +88,19 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		AC0424F01CD23C0400970D80 /* MQTT */ = {
+			isa = PBXGroup;
+			children = (
+				AC0424F11CD23C2A00970D80 /* MXMQTTManager.h */,
+				AC0424F21CD23C2A00970D80 /* MXMQTTManager.m */,
+			);
+			path = MQTT;
+			sourceTree = "<group>";
+		};
 		AC60EB011CCA1C0000E91B8B /* Expand */ = {
 			isa = PBXGroup;
 			children = (
+				AC0424F01CD23C0400970D80 /* MQTT */,
 				AC60EB021CCA1C0000E91B8B /* Category */,
 			);
 			path = Expand;
@@ -120,6 +131,8 @@
 		AC60EB0E1CCA207E00E91B8B /* Controoler */ = {
 			isa = PBXGroup;
 			children = (
+				D090EA561BAA9F78003C9492 /* MXMessageViewController.h */,
+				D090EA571BAA9F78003C9492 /* MXMessageViewController.m */,
 			);
 			path = Controoler;
 			sourceTree = "<group>";
@@ -175,9 +188,6 @@
 				AC60EB011CCA1C0000E91B8B /* Expand */,
 				D090EA531BAA9F78003C9492 /* AppDelegate.h */,
 				D090EA541BAA9F78003C9492 /* AppDelegate.m */,
-				D090EA561BAA9F78003C9492 /* ViewController.h */,
-				D090EA571BAA9F78003C9492 /* ViewController.m */,
-				D090EA591BAA9F78003C9492 /* Main.storyboard */,
 				D090EA5C1BAA9F78003C9492 /* Images.xcassets */,
 				D090EA4F1BAA9F78003C9492 /* Supporting Files */,
 				AC60EB001CC9F1CA00E91B8B /* Macro.h */,
@@ -304,7 +314,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D090EA5B1BAA9F78003C9492 /* Main.storyboard in Resources */,
 				D090EA5D1BAA9F78003C9492 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -372,8 +381,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC60EB0C1CCA1DA600E91B8B /* NSString+JSON.m in Sources */,
+				AC0424F31CD23C2A00970D80 /* MXMQTTManager.m in Sources */,
 				AC60EB141CCA20D500E91B8B /* MXConversation.m in Sources */,
-				D090EA581BAA9F78003C9492 /* ViewController.m in Sources */,
+				D090EA581BAA9F78003C9492 /* MXMessageViewController.m in Sources */,
 				D090EA551BAA9F78003C9492 /* AppDelegate.m in Sources */,
 				D090EA521BAA9F78003C9492 /* main.m in Sources */,
 				AC60EB091CCA1D6800E91B8B /* NSObject+JSON.m in Sources */,
@@ -397,17 +407,6 @@
 			targetProxy = D090EA661BAA9F78003C9492 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		D090EA591BAA9F78003C9492 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D090EA5A1BAA9F78003C9492 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		D090EA6D1BAA9F78003C9492 /* Debug */ = {

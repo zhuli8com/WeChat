@@ -12,6 +12,7 @@ PODS:
   - FMDB/SQLCipher (2.6.2):
     - SQLCipher
   - FMDB/standard (2.6.2)
+  - Masonry (1.0.0)
   - MQTTClient (0.7.4):
     - MQTTClient/Core (= 0.7.4)
   - MQTTClient/Core (0.7.4):
@@ -25,11 +26,13 @@ PODS:
 DEPENDENCIES:
   - FMDB
   - FMDB/SQLCipher
+  - Masonry
   - MQTTClient
 
 SPEC CHECKSUMS:
   CocoaLumberjack: 17fe8581f84914d5d7e6360f7c70022b173c3ae0
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
+  Masonry: b529bb169217897b6354d4b56b1fada6d475b13d
   MQTTClient: 1c1bedf87249a317ee9324b93252867bbc443ec7
   SQLCipher: 4c768761421736a247ed6cf412d9045615d53dff
 

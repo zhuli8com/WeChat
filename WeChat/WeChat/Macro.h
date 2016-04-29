@@ -17,7 +17,7 @@
 #define MQTT_HOST @"test.dehuinet.com"
 #define MQTT_PORT 1830
 #define MQTT_TLS YES
-#define MQTT_BASE @"test"
+#define MQTT_BASE @"/u/eWgveuUL7Mvw3_MWKg2pfWi56FY="
 #define MQTT_CLIENTID @"66701"
 
 #endif /* Macro_h */
