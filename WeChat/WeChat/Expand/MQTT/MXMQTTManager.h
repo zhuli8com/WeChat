@@ -17,5 +17,6 @@
 @interface MXMQTTManager : NSObject <MQTTSessionManagerDelegate>
 
 - (void)initMQTT;
+- (int)sendMessage:(NSString *)message;
 + (instancetype)sharedManager;
 @end

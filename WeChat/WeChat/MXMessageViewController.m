@@ -11,10 +11,11 @@
 #import "MXMQTTManager.h"
 #import <FMDB.h>
 
-@interface MXMessageViewController () <UITableViewDelegate,UITableViewDataSource>
+@interface MXMessageViewController () <UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 
-@property (nonatomic,strong) UITableView *messageTableView;
 @property (nonatomic,strong) NSMutableArray<MXConversation *> *conversations;
+@property (nonatomic,strong) UITableView *messageTableView;
+@property (nonatomic,strong) UITextField *messageTextField;
 @end
 
 @implementation MXMessageViewController
@@ -22,12 +23,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.view.backgroundColor=[UIColor whiteColor];
     [MX_MQTTManager initMQTT];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(mqttHandleMessage:) name:kMQTTHandleMessageNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     
     [self.view addSubview:self.messageTableView];
+    [self.view addSubview:self.messageTextField];
+    
+    [self.messageTextField mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.and.right.and.bottom.equalTo(self.view);
+        make.height.mas_equalTo(44);
+    }];
     [self.messageTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
+        make.left.and.right.and.top.equalTo(self.view);
+        make.bottom.equalTo(self.messageTextField.mas_top);
     }];
 }
 
@@ -67,6 +78,40 @@
     }
 }
 
+#pragma mark - UIKeyboardWillShowNotification
+- (void)keyboardWillShow:(NSNotification *)notification{
+    CGRect keyboardFrame=[[notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    CGFloat keyboardHeight=keyboardFrame.size.height;
+    [self.messageTextField mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.view).offset(-keyboardHeight);
+    }];
+    [self.messageTableView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.messageTextField.mas_top);
+    }];
+    
+    //解决键盘弹出时的黑屏问题
+    CGFloat animationDuration=[[notification.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    [UIView animateWithDuration:animationDuration animations:^{
+        [self.view layoutIfNeeded];
+    }];
+}
+
+#pragma mark - UIKeyboardWillHideNotification
+- (void)keyboardWillHide:(NSNotification *)notification{
+    [self.messageTextField mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.view);
+    }];
+    [self.messageTableView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.messageTextField.mas_top);
+    }];
+    
+    //解决键盘退出时的灰影问题
+    CGFloat animationDuration=[[notification.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    [UIView animateWithDuration:animationDuration animations:^{
+        [self.view layoutIfNeeded];
+    }];
+}
+
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.conversations.count;
@@ -84,6 +129,23 @@
     return cell;
 }
 
+#pragma mark - UITextFieldDelegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    int result= [MX_MQTTManager sendMessage:textField.text];
+    if (result) {
+        NSLog(@"发送成功");
+    }else{
+        NSLog(@"发送失败");
+    }
+    textField.text=@"";
+    return YES;
+}
+
+#pragma mark - UITapGestureRecognizer
+- (void)tapMessageTableView:(UITapGestureRecognizer *)gesture{
+    [self.messageTextField resignFirstResponder];
+}
+
 #pragma makr - getters and setters
 - (UITableView *)messageTableView{
     if (!_messageTableView) {
@@ -91,8 +153,22 @@
         _messageTableView.delegate=self;
         _messageTableView.dataSource=self;
 //        _messageTableView.tableFooterView=[[UIView alloc] init];
+        UITapGestureRecognizer *tapGesture=[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapMessageTableView:)];
+        [_messageTableView addGestureRecognizer:tapGesture];
     }
     return _messageTableView;
+}
+
+- (UITextField *)messageTextField{
+    if (!_messageTextField) {
+        _messageTextField=[[UITextField alloc] init];
+        _messageTextField.backgroundColor=[UIColor lightGrayColor];
+        _messageTextField.delegate=self;
+        _messageTextField.returnKeyType=UIReturnKeySend;
+        _messageTextField.borderStyle=UITextBorderStyleRoundedRect;
+        _messageTextField.alpha=0.5;
+    }
+    return _messageTextField;
 }
 
 - (NSMutableArray<MXConversation *> *)conversations{

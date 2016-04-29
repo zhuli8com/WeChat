@@ -14,6 +14,10 @@
 @end
 
 @implementation MXMQTTManager
+/*
+ * MQTTClient: create an instance of MQTTSessionManager once and connect
+ * will is set to let the broker indicate to other subscribers if the connection is lost
+ */
 - (void)initMQTT{
     self.mqttManager=[[MQTTSessionManager alloc] init];
     self.mqttManager.delegate=self;
@@ -41,11 +45,25 @@
                    certificates:nil
      ];
     
+    /*
+     * MQTTCLient: observe the MQTTSessionManager's state to display the connection status
+     */
     [self.mqttManager addObserver:self
                        forKeyPath:@"state"
                           options:NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionNew
                           context:nil
      ];
+}
+
+/*
+ * MQTTClient: send data to broker
+ */
+- (int)sendMessage:(NSString *)message{
+    int result=[self.mqttManager sendData:[message dataUsingEncoding:NSUTF8StringEncoding]
+                     topic:[NSString stringWithFormat:@"%@",MQTT_BASE]
+                       qos:MQTTQosLevelAtLeastOnce
+                    retain:NO];
+    return result;
 }
 
 #pragma mark - singleton
