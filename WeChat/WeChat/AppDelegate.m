@@ -7,7 +7,13 @@
 //
 
 #import "AppDelegate.h"
+#import "MXTabBarController.h"
+#import "MXNavigationController.h"
 #import "MXMessageViewController.h"
+#import "MXContactViewController.h"
+#import "MXAppCenterViewController.h"
+#import "MXWorkCircleViewController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -17,8 +23,35 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window=[[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    
     MXMessageViewController *messageVC=[[MXMessageViewController alloc] init];
-    self.window.rootViewController=messageVC;
+    MXNavigationController *navgationoVC1=[[MXNavigationController alloc] initWithRootViewController:messageVC];
+    messageVC.title=@"敏信";
+    messageVC.tabBarItem.image=[UIImage imageNamed:@"mx_icon_bottombar_im_normal_phone"];
+    messageVC.tabBarItem.selectedImage=[UIImage imageNamed:@"mx_icon_bottombar_im_selected_phone"];
+    
+    MXContactViewController *contactVC=[[MXContactViewController alloc] init];
+    MXNavigationController *navgationoVC2=[[MXNavigationController alloc] initWithRootViewController:contactVC];
+    contactVC.title=@"通讯录";
+    contactVC.tabBarItem.image=[UIImage imageNamed:@"mx_icon_bottombar_address_book_normal_phone"];
+    contactVC.tabBarItem.selectedImage=[UIImage imageNamed:@"mx_icon_bottombar_address_book_selected_phone"];
+
+    MXAppCenterViewController *appCenterVC=[[MXAppCenterViewController alloc] init];
+    MXNavigationController *navgationoVC3=[[MXNavigationController alloc] initWithRootViewController:appCenterVC];
+    appCenterVC.title=@"我的应用";
+    appCenterVC.tabBarItem.image=[UIImage imageNamed:@"mx_icon_bottombar_app_center_normal_phone"];
+    appCenterVC.tabBarItem.selectedImage=[UIImage imageNamed:@"mx_icon_bottombar_app_center_selected_phone"];
+    
+    MXWorkCircleViewController *workCircleVC=[[MXWorkCircleViewController alloc] init];
+    MXNavigationController *navgationoVC4=[[MXNavigationController alloc] initWithRootViewController:workCircleVC];
+    workCircleVC.title=@"工作圈";
+    workCircleVC.tabBarItem.image=[UIImage imageNamed:@"mx_icon_bottombar_sns_normal_phone"];
+    workCircleVC.tabBarItem.selectedImage=[UIImage imageNamed:@"mx_icon_bottombar_sns_selectedd_phone"];
+    
+    MXTabBarController *tabVC=[[MXTabBarController alloc] init];
+    tabVC.viewControllers=@[navgationoVC1,navgationoVC2,navgationoVC3,navgationoVC4];
+    
+    self.window.rootViewController=tabVC;
     [self.window makeKeyAndVisible];
     return YES;
 }

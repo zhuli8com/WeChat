@@ -22,6 +22,8 @@
         NSString *key=[NSString stringWithUTF8String:name];
         if ([key isEqualToString:@"ID"]) {
             conversation.ID=[dict[@"id"] integerValue];
+        }else if([key isEqualToString:@"direct_to_user_id"]&&!dict[key]){
+            [conversation setValue:@"111111" forKey:key];
         }else{
             [conversation setValue:dict[key] forKey:key];
         }
